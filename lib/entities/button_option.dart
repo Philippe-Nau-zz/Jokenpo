@@ -1,4 +1,4 @@
-enum Options{
+enum Options {
   rock,
   paper,
   scissor,
@@ -9,16 +9,13 @@ class CircularButtonOption {
   final Options type;
   bool isSelected;
 
-  set selectOption(bool state) { 
-      isSelected = state; 
-   } 
+  set selectOption(bool state) {
+    isSelected = state;
+  }
 
   CircularButtonOption({
     required this.text,
     required this.type,
     this.isSelected = false,
   });
-
 }
-
-

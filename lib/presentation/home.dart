@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:joken_po/controller/home_controller.dart';
 import 'package:joken_po/utils/color_pallete.dart';
@@ -7,36 +6,44 @@ import 'package:joken_po/widgets/circular_button.dart';
 import 'package:joken_po/widgets/score_bar.dart';
 
 class Home extends StatelessWidget {
-  final _controller = Get.put(HomeController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorPallete.mainColor,
-      body: SafeArea(
-        child: GetBuilder<HomeController>(
-          builder: (context) => Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ScoreBar(text: 'Computer', itemCount: _controller.computerScore,),
-              CircularButton(
-                marginAll: 50,
-                child: Center(
-                  child: Text(
-                    _controller.randomSelected?.text ?? 'GO!',
-                    style: TextStyle(
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold,
-                      color: ColorPallete.darkShadow,
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      builder: (controller) => Scaffold(
+        backgroundColor: ColorPallete.kMainColor,
+        body: SafeArea(
+          child: GetBuilder<HomeController>(
+            builder: (context) => Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ScoreBar(
+                  text: 'Computer',
+                  itemCount: controller.computerScore,
+                ),
+                CircularButton(
+                  marginAll: 50,
+                  child: Center(
+                    child: Text(
+                      controller.randomSelected?.text ?? 'GO!',
+                      style: TextStyle(
+                        fontSize: 60,
+                        fontWeight: FontWeight.bold,
+                        color: ColorPallete.kDarkShadow,
+                      ),
                     ),
                   ),
+                  onTap: () => controller.randomSelectOption(),
                 ),
-                onTap: () => _controller.randomSelectOption(),
-              ),
-              ScoreBar(text: 'Player', itemCount: _controller.playerScore,),
-              _ButtonsRow(
-                controller: _controller,
-              ),
-            ],
+                ScoreBar(
+                  text: 'Player',
+                  itemCount: controller.playerScore,
+                ),
+                _ButtonsRow(
+                  controller: controller,
+                ),
+              ],
+            ),
           ),
         ),
       ),

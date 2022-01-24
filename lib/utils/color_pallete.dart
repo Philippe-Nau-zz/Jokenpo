@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ColorPallete{
-  static const mainColor = Color(0xFFE0E5EC);
-  static const lightShadow = Color(0xFFFFFFFF);
-  static const darkShadow = Color(0xFFA3B1C6);
+abstract class ColorPallete {
+  ColorPallete._();
+  static const kMainColor = Color(0xFFE0E5EC);
+  static const kLightShadow = Color(0xFFFFFFFF);
+  static const kDarkShadow = Color(0xFFA3B1C6);
 }

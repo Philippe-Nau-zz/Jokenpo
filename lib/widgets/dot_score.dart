@@ -12,34 +12,32 @@ class DotScore extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: ColorPallete.mainColor,
+          color: ColorPallete.kMainColor,
           boxShadow: [
             BoxShadow(
-              color: ColorPallete.lightShadow,
+              color: ColorPallete.kLightShadow,
               offset: Offset(-9, -9),
               blurRadius: 16,
             ),
             BoxShadow(
-              color: ColorPallete.darkShadow,
+              color: ColorPallete.kDarkShadow,
               offset: Offset(9, 9),
               blurRadius: 16,
             ),
           ],
         ),
         child: Container(
-          child: Container(
-            margin: EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: ColorPallete.mainColor,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  ColorPallete.darkShadow,
-                  ColorPallete.lightShadow,
-                ],
-              ),
+          margin: EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: ColorPallete.kMainColor,
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                ColorPallete.kDarkShadow,
+                ColorPallete.kLightShadow,
+              ],
             ),
           ),
         ),

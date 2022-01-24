@@ -1,16 +1,15 @@
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:joken_po/model/button_option_model.dart';
+import 'package:joken_po/entities/button_option.dart';
 
 class HomeController extends GetxController {
-  CircularButtonOption rock =
-      CircularButtonOption(text: '✊', type: Options.rock);
-  CircularButtonOption paper =
-      CircularButtonOption(text: '🖐️', type: Options.paper);
-  CircularButtonOption scissor =
-      CircularButtonOption(text: '✌️', type: Options.scissor);
+  final rock = CircularButtonOption(text: '✊', type: Options.rock);
+  final paper = CircularButtonOption(text: '🖐️', type: Options.paper);
+  final scissor = CircularButtonOption(text: '✌️', type: Options.scissor);
+
   List<CircularButtonOption> optionsList = [];
+
   double _timer = 50;
   final _random = Random();
   CircularButtonOption? randomSelected;
@@ -68,24 +67,21 @@ class HomeController extends GetxController {
             {
               if (randomSelected?.type == Options.scissor)
                 playerScore++;
-              else if(randomSelected?.type == Options.paper)
-                computerScore++;
+              else if (randomSelected?.type == Options.paper) computerScore++;
             }
             break;
           case Options.paper:
             {
               if (randomSelected?.type == Options.rock)
                 playerScore++;
-              else if(randomSelected?.type == Options.scissor)
-                computerScore++;
+              else if (randomSelected?.type == Options.scissor) computerScore++;
             }
             break;
           case Options.scissor:
             {
               if (randomSelected?.type == Options.paper)
                 playerScore++;
-              else if(randomSelected?.type == Options.rock)
-                computerScore++;
+              else if (randomSelected?.type == Options.rock) computerScore++;
             }
             break;
         }
