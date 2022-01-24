@@ -2,5 +2,5 @@
 
 ## Getting Started
  
- Flutter pub get
- Flutter run
+ - Flutter pub get
+ - Flutter run
